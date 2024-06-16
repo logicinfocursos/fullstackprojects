@@ -1,0 +1,30 @@
+GET http://localhost:3001/products
+
+###
+
+GET http://localhost:3001/products/4
+
+###
+
+POST http://localhost:3001/products
+Content-Type: application/json
+
+{
+  "name": "Product 8",
+  "details": "Product 6",
+  "price": 600
+}
+###
+
+PUT http://localhost:3001/products/6
+Content-Type: application/json
+
+{
+  "name": "Product 444",
+  "details": "Product 444",
+  "price": 444
+}
+###
+DELETE http://localhost:3001/products/4
+
+###
