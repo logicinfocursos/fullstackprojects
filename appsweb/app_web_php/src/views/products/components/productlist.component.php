@@ -1,16 +1,22 @@
+<!-- views\products\components\productlist.component.php -->
 <?php
-include_once "./src/views/products/productcard.component.php";
+include_once "./src/views/products/components/productcard.component.php";
 
 
 
-function productlist($products, $title, $subtitle)
+function productlist($products, $title=null, $subtitle=null)
 {
 ?>
     <header class="mt-3">
         <div class="container">
             <div class="text-center">
-                <h1 class="display-5 fw-bolder"><?= $title ?></h1>
-                <p class="lead fw-normal mb-0"><?= $subtitle ?></p>
+                <?php if ($title) { ?>
+                    <h1 class="display-5 fw-bolder"><?= $title ?></h1>
+                <?php } ?>
+                <?php if ($subtitle) { ?>
+                    <p class="lead fw-normal mb-0"><?= $subtitle ?></p>
+                <?php } ?>
+
             </div>
         </div>
         <section class="">

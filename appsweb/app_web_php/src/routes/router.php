@@ -1,3 +1,4 @@
+<!-- src\routes\router.php -->
 <?php
 
 require_once 'src/controllers/home.controller.php';
@@ -14,12 +15,11 @@ class Router
     public function route($url)
     {       
         foreach ($this->routes as $route) {
-
-            if ($route->route === $url && $route->status == 1) {
-
-                $this->callControllerAction($route);
-
-                return;
+            $pattern = preg_replace('(:\w+)', '(\w+)', $route->route);
+            if (preg_match('@^' . $pattern . '$@', $url, $matches) && $route->status == 1) {
+                array_shift($matches);
+                $this->callControllerAction($route, $matches);
+                return; 
             }
         }
 
@@ -29,17 +29,19 @@ class Router
 
     private function callControllerAction($route)
     {
-        
-        // $controllerFile = $route->controller;
-        $controllerClass = ucfirst($route->controller);
+        $controllerClass = ucfirst($route->controller).'Controller';
 
-        $controllerFile = 'src/controllers/' . strtolower($route->controller) . 'controller.php';
+        $controllerFile = './src/controllers/' . strtolower($route->controller) . '.controller.php';
 
         require_once $controllerFile; 
 
         $controllerInstance = new $controllerClass();
         $action = $route->action;
 
-        $controllerInstance->$action();
+        if (isset($params[0])) {
+            return $controllerInstance->$action($params[0]);
+        } else {
+            return $controllerInstance->$action();
+        }
     }
 }

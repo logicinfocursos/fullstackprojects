@@ -30,6 +30,20 @@ export class BaseController {
         }
     }
 
+    async getByField(request, response) {     
+
+      //  try {
+          //const result2 = await this.repository.getById(parseInt(request.params.id))
+            const result =  await this.repository.getByField(request.params.field, request.params.value)
+            const objectList = result.map(object => this.repository.mapObject(object))
+
+            response.status(200).send(objectList)
+
+      //  } catch (e) {
+      //      response.status(400).send(e)
+      //  }
+    }
+
     async create(request, response) {
         response.status(200).send(await this.repository.create(request.body))
     }

@@ -1,7 +1,6 @@
 <!-- src\models\entities\category.entity.php -->
 <?php
 
-
 class CategoryEntity 
 {
     public $id;

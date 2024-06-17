@@ -1,3 +1,4 @@
+<!-- src\views\components\layout\footer.component.php -->
 <?php
 function footer()
 { ?>

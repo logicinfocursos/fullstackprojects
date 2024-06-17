@@ -1,5 +1,7 @@
+<!-- src\views\home\home.view.php -->
 <?php
-include_once "./src/views/products/productlist.component.php";
+include_once "./src/views/products/components/productlist.component.php";
+include_once './src/views/components/layout/myheader.component.php';
 
 function homeView($data)
 {
@@ -8,9 +10,10 @@ function homeView($data)
     $products = $data['products'];
     $categories = $data['categories'];
     $configurations = $_SESSION["configurations"];
+    
+    myheader();
+    productlist($products,  $title, $subtitle);
 
-        productlist($products,  $title, $subtitle);
-
-        ?>
+?>
     </div>
 <?php }

@@ -1,7 +1,6 @@
 <!-- src\models\entities\product.php -->
 <?php
 
-
 class ProductEntity 
 {
     public $id;

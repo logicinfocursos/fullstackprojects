@@ -23,6 +23,25 @@ export class BaseRepository {
         return result
     }
 
+    async getByField(field, value) {
+        const isNumeric = !isNaN(value);
+        const queryValue = isNumeric ? parseInt(value) : value;
+    
+        /* const result = await prisma[this.entity].findMany({
+            where: {
+                [field]: {
+                    contains: queryValue
+                }
+            }
+        }) */
+            const result = await prisma[this.entity].findMany({
+                where: {
+                    [field]: queryValue
+                }
+            })
+        return result;
+    }
+
     async create(data) {
         const result = await prisma[this.entity].create({
             data

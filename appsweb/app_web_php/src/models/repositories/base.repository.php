@@ -56,10 +56,10 @@ abstract class BaseRepository
        return $data ? $this->mapToItem($data) : null;
 
     }
-
-    public function getByKey($key, $field, $returnType = 'object') // $returnType = 'object' | 'list'
+    //getByField(field, value) 
+    public function getByField($key, $field, $returnType = 'object') // $returnType = 'object' | 'list'
     {
-        $url = $this->apiUrl . '/' . strval($key) . '/'. $field;
+        $url = $this->apiUrl . '/' . strval($field) . '/'. $key;
         $data = $this->fetchData($url);
 
         if ($returnType === 'object') return $data ? $this->mapToItem($data[0]) : null;

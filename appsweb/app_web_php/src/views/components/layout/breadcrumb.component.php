@@ -1,3 +1,4 @@
+<!-- src\views\components\layout\breadcrumb.component.php -->
 <?php
 
 function breadcrumb($currentPage = null, $previusPage = null, $previusPageLink = null)

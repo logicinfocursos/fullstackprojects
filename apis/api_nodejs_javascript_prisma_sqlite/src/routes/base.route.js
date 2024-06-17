@@ -16,6 +16,10 @@ export class BaseRoute {
         this.controller.getById(request, response)
     }
 
+    getByField = (request, response) => {
+        this.controller.getByField(request, response)
+    }
+
     create = (request, response) => {
         this.controller.create(request, response)
     }
@@ -29,7 +33,8 @@ export class BaseRoute {
     }
 
     setRoutes() {
-        this.router.get('/', this.getAll)
+        this.router.get('/', this.getAll)       
+        this.router.get('/:field?/:value?', this.getByField)
         this.router.get('/:id?', this.getById)
         this.router.post('/', this.create)
         this.router.put('/:id?', this.update)

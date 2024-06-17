@@ -1,4 +1,4 @@
-<!-- src\controllers\main.controller.php -->
+<!-- src\controllers\home.controller.php -->
 <?php
 require_once "./src/views/home/home.view.php";
 require_once "./src/models/repositories/product.repository.php";
