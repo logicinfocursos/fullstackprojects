@@ -22,7 +22,8 @@ class ProductsController
         $code = $_GET["code"];
 
         $product = $this->productRepository->getById(intval($code));
-        $product = $product[0];
+        
+        $product = $product;
 
         // $relatedProducts = $this->productRepository->getByField("category_id", $product["category_id"]);
         $products = $this->productRepository->getAll();

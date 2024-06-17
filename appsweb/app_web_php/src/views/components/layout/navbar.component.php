@@ -11,10 +11,13 @@ function navbar()
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">home</a></li>
                     <li class="nav-item"><a class="nav-link">sobre nós</a></li>
                 </ul>
-                <a class="btn btn-outline-dark" href="/cart">
-                    <i class="bi-cart-fill me-1"></i>
-                    carrinho
-                </a>
+                <form class="d-flex">
+                    <a class="btn btn-outline-dark" href="/cart">
+                        <i class="bi-cart-fill me-1"></i>
+                        carrinho
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">6</span>
+                    </a>
+                </form>
             </div>
         </div>
     </nav>
